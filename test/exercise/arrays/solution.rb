@@ -2,20 +2,20 @@ module Exercise
   module Arrays
     class << self
       def replace(array)
-        max_arrvalue = array[0]
+        max_value = array[0]
         array.each do |elem|
-          max_arrvalue = elem if elem > max_arrvalue
+          max_value = elem if elem > max_value
         end
         array.map do |elem|
-          elem = max_arrvalue if elem.positive?
+          elem = max_value if elem.positive?
           elem
         end
       end
 
-      def search(array, value, array_border_begin = nil, array_border_end = nil)
+      def search(array, value, array_border_begin = 0 , array_border_end = nil)
         return -1 if array.empty?
 
-        array_begin = array_border_begin || 0
+        array_begin = array_border_begin
         array_end = array_border_end || array.length - 1
         array_mid = (array_begin + array_end) / 2
         if value > array[array_end] || value < array[array_begin]
